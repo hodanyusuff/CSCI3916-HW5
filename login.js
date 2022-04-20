@@ -47,7 +47,7 @@ class Login extends Component {
                     <Form.Label>password</Form.Label>
                     <Form.Control onChange={this.updateDetails} value={this.state.details.password} type="password" placeholder="password" />
                 </Form.Group>
-                <button onClick={this.login}>Sign in</button>
+                <button onClick={this.login}>Login</button>
             </Form>
         )
     }
