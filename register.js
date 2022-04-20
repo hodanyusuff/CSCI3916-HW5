@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-//import Authentication from "./authentication";
-//import Register from "./register";
+import Authentication from "./authentication";
+import Register from "./register";
 import { submitRegister } from '../actions/authActions';
-import { Form} from "react-bootstrap";
+import {ControlLabel, Form, FormControl, FormGroup} from "react-bootstrap";
 
 class Register extends Component {
 
@@ -38,21 +38,35 @@ class Register extends Component {
 
     render(){
         return  (
-            <Form className='form-horizontal'>
-                <Form.Group controlId='name'>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control onChange={this.updateDetails} value={this.state.details.name} type="text" placeholder="Enter text" />
-                </Form.Group>
+            <Form horizontal>
+                <FormGroup controlId='name'>
+                    <col componentClass={ControlLabel} sm={2}>
+                        Name
+                    </col>
+                    <col sm={10}>
+                      <FormControl onChange={this.updateDetails} value={this.state.details.name} type="text" placeholder="Name" />
+                    </col>
+                </FormGroup>
 
-                <Form.Group controlId="username">
-                    <Form.Label>password</Form.Label>
-                    <Form.Control onChange={this.updateDetails} value={this.state.details.username} type="email" placeholder="email" />
-                </Form.Group>
+                <FormGroup controlId="username">
+                    <col componentClass={ControlLabel} sm={2}>
+                        Email
+                    </col>
+                    <col sm={10}>
 
-                <Form.Group controlId="password">
-                    <Form.Label>password</Form.Label>
-                    <Form.Control onChange={this.updateDetails} value={this.state.details.password} type="password" placeholder="password" />
-                </Form.Group>
+                         <FormControl onChange={this.updateDetails} value={this.state.details.username} type="text" placeholder="Username" />
+                    </col>
+                </FormGroup>
+
+                <FormGroup controlId="password">
+                    <col componentClass={ControlLabel} sm={2}>
+                        Password
+                    </col>
+                    <col sm={10}>
+
+                        <FormControl onChange={this.updateDetails} value={this.state.details.password} type="password" placeholder="Password" />
+                    </col>
+                </FormGroup>
                 <button onClick={this.register}>Register</button>
             </Form>
         )
