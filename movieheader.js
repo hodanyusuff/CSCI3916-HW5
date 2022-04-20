@@ -31,6 +31,9 @@ class MovieHeader extends Component {
                         </LinkContainer>
                     </Nav>
                 </Navbar>
+                <header className="App-header">
+                    <h1 className="App-title">{(this.props.selectedMovie ? this.props.selectedMovie.title : '')}</h1>
+                </header>
             </div>
         )
     }
