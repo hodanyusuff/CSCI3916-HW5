@@ -39,7 +39,7 @@ class Register extends Component {
     render(){
         return  (
             <Form className='form-horizontal'>
-                <Form.Group controlId='username'>
+                <Form.Group controlId='name'>
                     <Form.Label>Name</Form.Label>
                     <Form.Control onChange={this.updateDetails} value={this.state.details.name} type="text" placeholder="Enter text" />
                 </Form.Group>
@@ -53,7 +53,7 @@ class Register extends Component {
                     <Form.Label>password</Form.Label>
                     <Form.Control onChange={this.updateDetails} value={this.state.details.password} type="password" placeholder="password" />
                 </Form.Group>
-                <button onClick={this.register}>Sign in</button>
+                <button onClick={this.register}>Register</button>
             </Form>
         )
     }
