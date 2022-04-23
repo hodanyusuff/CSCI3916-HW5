@@ -1,13 +1,13 @@
 import constants from '../constants/actionTypes';
 
-var initialState = {
+let initialState = {
     movies: [],
     selectedMovie: null
 
 }
 
 export default (state = initialState, action) => {
-    var updated = Object.assign({}, state);
+    let updated = Object.assign({}, state);
 
     switch (action.type) {
         case constants.FETCH_MOVIES:
