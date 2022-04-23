@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import {fetchMovies} from "../actions/movieActions";
 import {setMovie} from "../actions/movieActions";
 import {connect} from "react-redux";
-import {Image} from "react-bootstrap";
+import {Image, Nav} from "react-bootstrap";
 import {Carousel} from "react-bootstrap";
-import {Glyphicon} from "react-bootstrap";
 import {LinkContainer} from 'react-router-bootstrap';
-import CarouselCaption from "react-bootstrap/lib/CarouselCaption";
+import {BsStarFill} from "react-icons/bs";
 
-class Movielist extends Component {
+
+
+class MovieList extends Component {
     constructor(props) {
         super(props);
         this.handleSelect = this.handleSelect.bind(this);
@@ -19,7 +20,7 @@ class Movielist extends Component {
         dispatch(fetchMovies());
     }
 
-    handleSelect(selectedIndex,) {
+    handleSelect(selectedIndex, e) {
         const {dispatch} = this.props;
         dispatch(setMovie(this.props.movies[selectedIndex]));
     }
@@ -41,15 +42,17 @@ class Movielist extends Component {
                         <Carousel.Item key={movie._Id}>
                             <div>
                                 <LinkContainer to={'/movie/'+movie._Id} onClick={()=>this.handleClick(movie)}>
-                                    <Image className="image" src={movie.imageUrl} thumbnail />
+                                    <Nav.Link><Image className="image" src={movie.imageUrl} thumbnail /></Nav.Link>
                                 </LinkContainer>
                             </div>
                             <Carousel.Caption>
                                 <h3>{movie.title}</h3>
-                                <Glyphicon glyph={'star'} /> {movie.avgRating} &nbsp;&nbsp; {movie.releaseDate}
+                                <BsStarFill glyph={'star'} /> {movie.avgRating} &nbsp;&nbsp; {movie.releaseDate}
                             </Carousel.Caption>
-                        </Carousel.Item>)}
-                </Carousel>)
+                        </Carousel.Item>
+                    )}
+                </Carousel>
+            )
 
         }
         return (
@@ -58,10 +61,10 @@ class Movielist extends Component {
     }
 }
 
-const mapStateToProps =state => {
+const mapStateToProps = state => {
     return {
         movies: state.movie.movies
     }
 }
 
-export default connect(mapStateToProps)(Movielist);
+export default connect(mapStateToProps)(MovieList);
