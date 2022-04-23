@@ -1,17 +1,22 @@
-import React, { Component } from 'react';
-import {withRouter} from "react-router-dom";
-import {connect} from "react-redux";
+import React, { useState } from 'react';
+import {useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {fetchMovie} from "../actions/movieActions";
+import MovieDetail from "../components/moviedetail";
 
-class Movie extends Component {
-
-}
-
-const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps);
-    return {
-        selectedMovie: state.movie.selectedMovie,
-        movieId: ownProps.match.params.movieId
+function Movie(props) {
+    const [selectedMovie] = useState(props.selectedMovie);
+    const params = useParams();
+    const movieId = params.movieId;
+    console.log(movieId);
+    const dispatch = useDispatch();
+    if (selectedMovie == null) {
+        dispatch(fetchMovie(movieId));
     }
+
+    return (<MovieDetail movieId={movieId} />)
 }
 
-export default withRouter(connect(mapStateToProps)(Movie));
+export default Movie
+
+
