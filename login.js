@@ -1,14 +1,11 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux'
-//import Authentication from "./authentication";
-//import Register from "./register";
+import React, { Component } from 'react';
 import { submitLogin } from '../actions/authActions';
-import { Form} from "react-bootstrap";
+import { connect } from 'react-redux';
+import { Form, Button } from 'react-bootstrap';
 
 class Login extends Component {
 
-    constructor() {
-        // eslint-disable-next-line no-undef
+    constructor(props) {
         super(props);
         this.updateDetails = this.updateDetails.bind(this);
         this.login = this.login.bind(this);
@@ -20,14 +17,14 @@ class Login extends Component {
             }
         };
     }
+
     updateDetails(event){
-        let updateDetails = Object.assign( {}, this.state.details);
+        let updateDetails = Object.assign({}, this.state.details);
 
         updateDetails[event.target.id] = event.target.value;
-        this.setState( {
+        this.setState({
             details: updateDetails
         });
-
     }
 
     login() {
@@ -36,18 +33,18 @@ class Login extends Component {
     }
 
     render(){
-        return  (
+        return (
             <Form className='form-horizontal'>
-                <Form.Group controlId='username'>
+                <Form.Group controlId="username">
                     <Form.Label>Email</Form.Label>
                     <Form.Control onChange={this.updateDetails} value={this.state.details.username} type="email" placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group controlId="password">
-                    <Form.Label>password</Form.Label>
-                    <Form.Control onChange={this.updateDetails} value={this.state.details.password} type="password" placeholder="password" />
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control onChange={this.updateDetails} value={this.state.details.password}  type="password" placeholder="Password" />
                 </Form.Group>
-                <button onClick={this.login}>Login</button>
+                <Button onClick={this.login}>Sign in</Button>
             </Form>
         )
     }
@@ -55,7 +52,6 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-
     }
 }
 
