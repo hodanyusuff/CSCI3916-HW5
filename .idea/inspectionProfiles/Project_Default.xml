@@ -3,4 +3,8 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
+<<<<<<< HEAD
 </component>
+=======
+</component>
+>>>>>>> origin/main
