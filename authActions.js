@@ -22,12 +22,11 @@ export function submitLogin(data) {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-
             },
             body: JSON.stringify(data),
-            mode: 'core'
+            mode: 'cors'
         }).then((response) => {
-            if(!response.ok) {
+            if (!response.ok) {
                 throw Error(response.statusText);
             }
             return response.json()
@@ -48,12 +47,11 @@ export function submitRegister(data) {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-
             },
             body: JSON.stringify(data),
-            mode: 'core'
+            mode: 'cors'
         }).then((response) => {
-            if(!response.ok) {
+            if (!response.ok) {
                 throw Error(response.statusText);
             }
             return response.json()
@@ -70,6 +68,5 @@ export function logoutUser() {
         dispatch(logout())
     }
 }
-
 
 
