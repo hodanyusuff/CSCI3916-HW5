@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
-import { fetchMovie } from "../actions/movieActions";
-import MovieDetail from "../components/moviedetail"
-
-// support routing
+import {useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {fetchMovie} from "../actions/movieActions";
+import MovieDetail from "../components/moviedetail";
 
 function Movie(props) {
     const [selectedMovie] = useState(props.selectedMovie);
@@ -19,4 +17,6 @@ function Movie(props) {
     return (<MovieDetail movieId={movieId} />)
 }
 
-export default Movie;
+export default Movie
+
+
