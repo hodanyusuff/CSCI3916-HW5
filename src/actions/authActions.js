@@ -49,7 +49,7 @@ export function submitRegister(data) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data),
-            mode: 'cors'
+            mode: 'no-cors'
         }).then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);
